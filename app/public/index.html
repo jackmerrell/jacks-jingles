@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Jack's Jingles</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="container">
+
+      <div id="login" class="row">
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+      </div>
+
+      <div id="loggedin">
+        <div class="row">
+        <div id="playlist" class="col-md-8">
+        </div>
+        <div id="playlist-tracks" class="col-md-4">
+        </div>
+      </div>
+    </div><!--  end row -->
+
+    </div>
+
+    <script id="playlist-template" type="text/x-handlebars-template">
+      <h1>
+        {{name}}
+      </h1>
+      <img src="{{images.0.url}}"></img>
+      <h3>by: {{owner.id}}</h3>
+    </script>
+
+
+    <script id="playlist-tracks-template" type="text/x-handlebars-template">
+      <div id="test-list">
+        <ul class="list">
+      {{#each this}}
+
+
+      {{#track}}
+
+        <li>
+        <p class="name">
+          {{name}}
+        </p>
+        <audio controls="controls">
+        <source src={{preview_url}} type="audio/mp3">
+        </audio>
+
+      {{/track}}
+
+      {{/each}}
+    </li>
+    </ul>
+      <ul class="pagination"></ul>
+      </div>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script src="main2.js"></script>
+  </body>
+</html>
